@@ -1,38 +1,93 @@
-.App {
-  text-align: center;
+.js_todo_app {
+	width: 70%;
+	margin: 0 auto;
+	margin-top: 50px;
+	padding: 30px 20px;
+  border: 3px solid rgb(29 212 29 / 10%);
+  border-radius: 5px;
+  background: hsl(120deg 50% 85% / 20%);
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+ul {
+  list-style-type: none;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  padding-inline-start: 0;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+li {
+	position: relative;
+  padding: 10px;
+  background: #ffffff;
+  margin: 10px;
+	border-radius: 5px;
+	padding-right: 150px;
+  list-style-type: none;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.js_todo {
+	margin: 0 0 20px 0;
 }
-
-.App-link {
-  color: #61dafb;
+.js_deadline {
+	font-size: 12px;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.js_done_btn {
+	position: absolute;
+	right: 10px;
+	top: 50%;
+	transform: translateY(-50%);
+}
+.js_delete_btn {
+	position: absolute;
+	right: 70px;
+	top: 50%;
+	transform: translateY(-50%);
+}
+h1 {
+	font-size: 24px;
+	margin-bottom: 20px;
+}
+h2 {
+	font-size: 20px;
+	margin-bottom: 20px;
+	margin-left: 10px;
+	font-weight: bold;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+.todo_task_table {
+	margin-top: 30px;
+	background: rgb(198, 236, 198);
+	border-radius: 5px;
+	padding: 10px 0 100px;
+}
+label {
+  margin: 10px 0 20px;
+  display: block;
+}
+select {
+  margin: 0 3px;
+}
+form button {
+  width: 90%;
+  display: block;
+	margin: 0 auto;
+}
+input {
+  width: 100%;
+  padding: 5px 0 5px 5px;
+	box-sizing: border-box;
+}
+button {
+	color: white;
+	background: orange;
+  border: none;
+  border-radius: 15px;
+  font-size: 10px;
+  padding: 10px;
+}
+button:hover {
+	opacity: 0.7;
+}
+.js_done_text {
+	text-decoration: line-through;
 }
