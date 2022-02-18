@@ -6,7 +6,7 @@ import { TodoList } from './components/TodoList'
 export const App  = () => {
 
   // stateの設定
-  const [inCompleteTodos, setInCompleteTodos] = useState(['']);
+  const [inCompleteTodos, setInCompleteTodos] = useState([]);
   const [todoText, setTodoText] = useState('');
   const [active, setActive] = useState(false);
 
@@ -39,8 +39,9 @@ export const App  = () => {
         active={active}
         classToggle={classToggle}
         onClickDelete={onClickDelete}
+        // deadLine={deadLine}
       />
-</div>
+    </div>
     </>
   )
 }
