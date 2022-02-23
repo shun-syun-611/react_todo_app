@@ -22,7 +22,11 @@ export const App  = () => {
 
   // stateの設定
   const [inCompleteTodos, setInCompleteTodos] = useState([]);
-  const [todoText, setTodoText] = useState('');
+  const [todoList, setTodoList] = useState({
+    text: "",
+    status: false
+  });
+  console.log(todoList.text);
   const [selectYear, setSelectYear] = useState(thisYear);
   const [selectMonth, setSelectMonth] = useState(thisMonth);
   const [selectDate, setSelectDate] = useState(thisDate);
@@ -34,32 +38,42 @@ export const App  = () => {
 
   const [active, setActive] = useState(false);
 
-  const onChangeTodoText = (event) => setTodoText(event.target.value);
+  const onChangeTodoText = (event) => setTodoList({...todoList ,text:event.target.value});
   const onChangeSelectYear = (event) =>  setSelectYear(Number(event.target.value));
   const onChangeSelectMonth = (event) =>  setSelectMonth(Number(event.target.value));
   const onChangeSelectDate = (event) =>  setSelectDate(Number(event.target.value));
 
-  const classToggle = (index) => setActive(!active);
 
 
-  // ボタンクリック処理
+  // ボタンクリック処理 ここにセレクトボックスの値オブジェクトとして渡す
   const onClickAdd = () => {
-    if(todoText === '') return;
-      const addTodos = [...inCompleteTodos, todoText];
+    if(todoList.text === '') return;
+      const addTodos = [...inCompleteTodos, todoList];
       setInCompleteTodos(addTodos);
-      setTodoText('');
+      setTodoList({...todoList, text: ""});
   }
   const onClickDelete = (index) => {
     const newTodos = [...inCompleteTodos];
     newTodos.splice(index, 1);
     setInCompleteTodos(newTodos);
   }
+  const onClickDone = (index) => {
+    const newTodos = [...inCompleteTodos];
+    if (newTodos[index].status === false) {
+      newTodos[index].status = true;
+      setInCompleteTodos(newTodos);
+    }
+    else {
+      newTodos[index].status = false;
+      setInCompleteTodos(newTodos);
+    } 
+  }
 
   return (
     <>
     <div className="js_todo_app">
       <InputTodo 
-        todotext={todoText}
+        todoList={todoList}
         onChange={onChangeTodoText}
         onClick={onClickAdd}
         onChangeSelectYear={onChangeSelectYear}
@@ -75,8 +89,8 @@ export const App  = () => {
       <TodoList
         inCompleteTodos={inCompleteTodos}
         active={active}
-        classToggle={classToggle}
         onClickDelete={onClickDelete}
+        onClickDone={onClickDone}
         // deadLine={deadLine}
       />
     </div>
