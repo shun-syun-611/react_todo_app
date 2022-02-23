@@ -10,6 +10,8 @@ export const TodoList = (props) =>{
         // deadLine
     } = props;
 
+    console.log(inCompleteTodos);
+
     return (
     <div className="todo_task_table">
         <h2>todo_task</h2>
@@ -21,7 +23,7 @@ export const TodoList = (props) =>{
                     <p className={active ? 'js_done_text' : ''}>{todo}</p>
                     <button className="js_delete_btn" onClick={() =>onClickDelete(index)}>Delete</button>
                     <button className="js_done_btn" onClick={() => classToggle(index)}>Done</button>
-                    <p className="js_deadline">期限日: </p>
+                    <p className="js_deadline">期限日: {}</p>
                 </li>
             );
           })}
