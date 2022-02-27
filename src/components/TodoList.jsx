@@ -8,8 +8,6 @@ export const TodoList = (props) =>{
         onClickDone,
     } = props;
 
-    console.log(inCompleteTodos);
-
     return (
     <div className="todo_task_table">
         <h2>todo_task</h2>

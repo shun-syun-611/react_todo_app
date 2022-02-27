@@ -3,14 +3,14 @@ import React from 'react';
 
 export const InputTodo = (props) => {
 
-    const { todoList, onChange, onClick, onChangeSelectYear, onChangeSelectMonth, onChangeSelectDate, selectYear, selectMonth, selectDate, optionNumYear ,optionNumMonth, optionNumDay } = props;
-    console.log(Number(selectYear));
+    const { todoList, onChangeTodoText, onClick, onChangeSelectYear, onChangeSelectMonth, onChangeSelectDate, selectYear, selectMonth, selectDate, optionNumYear ,optionNumMonth, optionNumDay } = props;
+    // console.log(Number(selectYear));
 
     return (
         <>
             <h1>React ToDoアプリ</h1>
             <form>
-                <input id="task_value" type="text" value={todoList.text} onChange={onChange}/>
+                <input id="task_value" type="text" value={todoList.text} onChange={onChangeTodoText}/>
                 <label>期限日:
                     <select id="select_year" name="year" onChange={onChangeSelectYear} defaultValue={selectYear}>
                         {optionNumYear.map((num) =>
