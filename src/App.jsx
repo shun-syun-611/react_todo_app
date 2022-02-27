@@ -37,22 +37,27 @@ export const App  = () => {
     month: thisMonth,
     day: thisDate
   });
-  console.log(todoList);
-  
+
+  console.log({...todoList});
   const onChangeTodoText = (event) => setTodoList(
-      {...todoList,
-        text:event.target.value,
-        year:selectYear,
-        month:selectMonth,
-        day:selectDate,
+      {...todoList, text:event.target.value
       }
     );
-  const onChangeSelectYear = (event) =>  setSelectYear(Number(event.target.value));
-  const onChangeSelectMonth = (event) =>  setSelectMonth(Number(event.target.value));
-  const onChangeSelectDate = (event) =>  setSelectDate(Number(event.target.value));
-  console.log(selectYear);
+  const onChangeSelectYear = (event) => {
+    setSelectYear(Number(event.target.value));
+    setTodoList({...todoList, year:Number(event.target.value)});
+  }
+  const onChangeSelectMonth = (event) => {
+    setTodoList({...todoList, month:Number(event.target.value)});
+    setSelectMonth(Number(event.target.value));
+  }
+  const onChangeSelectDate = (event) => {
+    setTodoList({...todoList, day:Number(event.target.value)});
+    setSelectDate(Number(event.target.value));
+  }
 
   // ボタンクリック処理 追加するtodoをオブジェクトとして追加
+  // addを押したタイミングでオブジェクトを生成して、それを追加する
   const onClickAdd = () => {
     if(todoList.text === '') return;
       const addTodos = [...inCompleteTodos, todoList];
@@ -81,7 +86,7 @@ export const App  = () => {
     <div className="js_todo_app">
       <InputTodo 
         todoList={todoList}
-        onChange={onChangeTodoText}
+        onChangeTodoText={onChangeTodoText}
         onClick={onClickAdd}
         onChangeSelectYear={onChangeSelectYear}
         onChangeSelectMonth={onChangeSelectMonth}
